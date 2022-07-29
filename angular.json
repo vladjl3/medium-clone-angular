@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "spp-angular": {
+    "medium-clone-angular": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -16,12 +16,12 @@
       },
       "root": "",
       "sourceRoot": "src",
-      "prefix": "app",
+      "prefix": "mca",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/spp-angular",
+            "outputPath": "dist/medium-clone-angular",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -68,10 +68,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "spp-angular:build:production"
+              "browserTarget": "medium-clone-angular:build:production"
             },
             "development": {
-              "browserTarget": "spp-angular:build:development"
+              "browserTarget": "medium-clone-angular:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -79,7 +79,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "spp-angular:build"
+            "browserTarget": "medium-clone-angular:build"
           }
         },
         "test": {
@@ -98,5 +98,5 @@
       }
     }
   },
-  "defaultProject": "spp-angular"
+  "defaultProject": "medium-clone-angular"
 }

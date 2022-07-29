@@ -1,6 +1,6 @@
-# SPP - what is it?
+# What is it?
 
-SPP-ANGULAR - Social Publisher Platform based on Angular framework. First iteration.
+It is Meduim clone (frontend), based on Angular framework.
 
 # Angular
 
