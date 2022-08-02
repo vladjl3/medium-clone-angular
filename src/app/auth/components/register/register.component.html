@@ -13,22 +13,26 @@
               type="text"
               class="form-control form-control-lg fieldset-input"
               placeholder="Username"
-              formGroupName="username"
+              formControlName="username"
             />
             <input
               type="email"
               class="form-control form-control-lg fieldset-input"
               placeholder="Email"
-              formGroupName="email"
+              formControlName="email"
             />
             <input
               type="password"
               class="form-control form-control-lg fieldset-input"
               placeholder="Password"
-              formGroupName="password"
+              formControlName="password"
             />
           </fieldset>
-          <button type="submit" class="btn btn-lg btn-primary pull-xs-right">
+          <button
+            type="submit"
+            class="btn btn-lg btn-primary pull-xs-right"
+            [disabled]="inProgress$ | async"
+          >
             Sign up
           </button>
         </form>
