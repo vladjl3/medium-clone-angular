@@ -7,8 +7,8 @@ import { StoreModule } from '@ngrx/store';
 import { AuthRoutingModule } from './auth-routing.module';
 import { RegisterComponent } from './components/register/register.component';
 import { AuthService } from './services/auth.service';
-import * as fromAuthStore from './store/auth.store';
-import { RegisterEffect } from './store/effects/register.effect';
+import * as fromAuthReducer from './store/auth.reducer';
+import { RegisterEffect } from './store/effects/register.effects';
 
 @NgModule({
   declarations: [RegisterComponent],
@@ -16,7 +16,10 @@ import { RegisterEffect } from './store/effects/register.effect';
     CommonModule,
     AuthRoutingModule,
     ReactiveFormsModule,
-    StoreModule.forFeature(fromAuthStore.featureName, fromAuthStore.reducers),
+    StoreModule.forFeature(
+      fromAuthReducer.featureName,
+      fromAuthReducer.reducer
+    ),
     EffectsModule.forFeature([RegisterEffect]),
   ],
   providers: [AuthService],

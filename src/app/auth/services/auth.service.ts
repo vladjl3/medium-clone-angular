@@ -9,7 +9,10 @@ import { RegisterRequestInterface } from '../types/registerRequest.interface';
 @Injectable()
 export class AuthService {
   constructor(private http: HttpClient) {}
-  register(data: RegisterRequestInterface): Observable<CurrentUserInterface> {
+
+  public register(
+    data: RegisterRequestInterface
+  ): Observable<CurrentUserInterface> {
     const url = environment.apiBaseUrl + '/users';
     return this.http
       .post<AuthResponseInterface>(url, data)

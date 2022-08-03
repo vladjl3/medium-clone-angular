@@ -4,7 +4,7 @@ import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
 import { registerAction } from '@app/auth/store/actions/register.actions';
-import { inProgressSelector } from '@app/auth/store/selectors/register.selector';
+import { inProgressSelector } from '@app/auth/store/auth.selectors';
 import { RegisterRequestInterface } from '@app/auth/types/registerRequest.interface';
 import { AppStateInterface } from '@app/shared/types/appState.interface';
 
