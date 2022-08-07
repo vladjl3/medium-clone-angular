@@ -4,9 +4,13 @@ import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
 import { registerAction } from '@app/auth/store/actions/register.actions';
-import { inProgressSelector } from '@app/auth/store/auth.selectors';
+import {
+  inProgressSelector,
+  validationErrorsSelector,
+} from '@app/auth/store/auth.selectors';
 import { RegisterRequestInterface } from '@app/auth/types/registerRequest.interface';
 import { AppStateInterface } from '@app/shared/types/appState.interface';
+import { BackendErrorsInterface } from '@app/shared/types/backendErrors.interface';
 
 @Component({
   selector: 'mca-auth',
@@ -17,6 +21,7 @@ import { AppStateInterface } from '@app/shared/types/appState.interface';
 export class RegisterComponent implements OnInit {
   public form: FormGroup;
   public inProgress$: Observable<boolean>;
+  public backendErrors$: Observable<BackendErrorsInterface | null>;
 
   constructor(
     private fb: FormBuilder,
@@ -30,6 +35,7 @@ export class RegisterComponent implements OnInit {
 
   private valuesInit(): void {
     this.inProgress$ = this.store$.pipe(select(inProgressSelector));
+    this.backendErrors$ = this.store$.pipe(select(validationErrorsSelector));
   }
 
   private formInit(): void {

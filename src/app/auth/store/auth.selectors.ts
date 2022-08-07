@@ -9,5 +9,10 @@ export const authFeatureSelector = (
 
 export const inProgressSelector = createSelector(
   authFeatureSelector,
-  (state: AuthStateInterface) => state.inProgress
+  (authState: AuthStateInterface) => authState.inProgress
+);
+
+export const validationErrorsSelector = createSelector(
+  authFeatureSelector,
+  (authState: AuthStateInterface) => authState.validationErrors
 );
