@@ -10,12 +10,16 @@ import { RegisterRequestInterface } from '../types/registerRequest.interface';
 export class AuthService {
   constructor(private http: HttpClient) {}
 
+  private getUser(response: AuthResponseInterface): CurrentUserInterface {
+    return response.user;
+  }
+
   public register(
     data: RegisterRequestInterface
   ): Observable<CurrentUserInterface> {
     const url = environment.apiBaseUrl + '/users';
     return this.http
       .post<AuthResponseInterface>(url, data)
-      .pipe(map((response: AuthResponseInterface) => response.user));
+      .pipe(map(this.getUser));
   }
 }
