@@ -6,6 +6,11 @@ import {
   registerFailureAction,
   registerSuccessAction,
 } from './actions/register.actions';
+import {
+  loginAction,
+  loginFailureAction,
+  loginSuccessAction,
+} from './actions/login.actions';
 
 export const featureName = 'auth';
 
@@ -29,6 +34,22 @@ export const reducer = createReducer(
     currentUser: action.currentUser,
   })),
   on(registerFailureAction, (state, action) => ({
+    ...state,
+    inProgress: false,
+    validationErrors: action.errors,
+  })),
+  on(loginAction, (state) => ({
+    ...state,
+    inProgress: true,
+    validationErrors: null,
+  })),
+  on(loginSuccessAction, (state, action) => ({
+    ...state,
+    inProgress: false,
+    currentUser: action.currentUser,
+    isLoggedIn: true,
+  })),
+  on(loginFailureAction, (state, action) => ({
     ...state,
     inProgress: false,
     validationErrors: action.errors,
