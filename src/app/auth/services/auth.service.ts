@@ -4,6 +4,7 @@ import { CurrentUserInterface } from '@app/shared/types/currentUser.interface';
 import { map, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { AuthResponseInterface } from '../types/authResponse.interface';
+import { LoginRequestInterface } from '../types/loginRequest.interface';
 import { RegisterRequestInterface } from '../types/registerRequest.interface';
 
 @Injectable()
@@ -18,6 +19,13 @@ export class AuthService {
     data: RegisterRequestInterface
   ): Observable<CurrentUserInterface> {
     const url = environment.apiBaseUrl + '/users';
+    return this.http
+      .post<AuthResponseInterface>(url, data)
+      .pipe(map(this.getUser));
+  }
+
+  public login(data: LoginRequestInterface): Observable<CurrentUserInterface> {
+    const url = environment.apiBaseUrl + '/users/login';
     return this.http
       .post<AuthResponseInterface>(url, data)
       .pipe(map(this.getUser));
