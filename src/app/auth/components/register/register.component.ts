@@ -13,7 +13,7 @@ import { AppStateInterface } from '@app/shared/types/appState.interface';
 import { BackendErrorsInterface } from '@app/shared/types/backendErrors.interface';
 
 @Component({
-  selector: 'mca-auth',
+  selector: 'mca-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
