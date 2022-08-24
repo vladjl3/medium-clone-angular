@@ -11,12 +11,14 @@ import { reducers } from './store/root.store';
 
 import { AuthModule } from '@app/auth/auth.module';
 import { EffectsModule } from '@ngrx/effects';
+import { CoreModule } from './core/core.module';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    CoreModule,
     AuthModule,
     HttpClientModule,
     StoreModule.forRoot(reducers),
