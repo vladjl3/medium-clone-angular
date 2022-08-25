@@ -11,6 +11,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { AuthService } from './services/auth.service';
 import * as AuthReducer from './store/auth.reducer';
+import { GetCurrentUserEffect } from './store/effects/get-current-user.effects';
 import { LoginEffect } from './store/effects/login.effects';
 import { RegisterEffect } from './store/effects/register.effects';
 
@@ -22,7 +23,11 @@ import { RegisterEffect } from './store/effects/register.effects';
     ReactiveFormsModule,
     BackendErrorMessagesModule,
     StoreModule.forFeature(AuthReducer.featureName, AuthReducer.reducer),
-    EffectsModule.forFeature([RegisterEffect, LoginEffect]),
+    EffectsModule.forFeature([
+      RegisterEffect,
+      LoginEffect,
+      GetCurrentUserEffect,
+    ]),
   ],
   providers: [AuthService, PersistenceService],
 })

@@ -11,11 +11,17 @@ import {
   loginFailureAction,
   loginSuccessAction,
 } from './actions/login.actions';
+import {
+  getCurrentUserAction,
+  getCurrentUserFailureAction,
+  getCurrentUserSuccessAction,
+} from './actions/get-current-user.actions';
 
 export const featureName = 'auth';
 
 const initialState: AuthStateInterface = {
   inProgress: false,
+  isFetchingCurrentUser: false,
   isLoggedIn: null,
   currentUser: null,
   validationErrors: null,
@@ -53,5 +59,21 @@ export const reducer = createReducer(
     ...state,
     inProgress: false,
     validationErrors: action.errors,
+  })),
+  on(getCurrentUserAction, (state) => ({
+    ...state,
+    isFetchingCurrentUser: true,
+  })),
+  on(getCurrentUserSuccessAction, (state, action) => ({
+    ...state,
+    isFetchingCurrentUser: false,
+    isLoggedIn: true,
+    currentUser: action.currentUser,
+  })),
+  on(getCurrentUserFailureAction, (state) => ({
+    ...state,
+    isFetchingCurrentUser: false,
+    isLoggedIn: false,
+    currentUser: null,
   }))
 );
