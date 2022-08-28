@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '@app/auth/services/auth.service';
 import { PersistenceService } from '@app/shared/services/persistence.service';
-import { CurrentUserInterface } from '@app/shared/types/currentUser.interface';
+import { CurrentUserInterface } from '@app/shared/types/current-user.interface';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { catchError, map, of, switchMap, tap } from 'rxjs';
 import {

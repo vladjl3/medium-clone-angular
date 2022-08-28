@@ -9,8 +9,8 @@ import {
   validationErrorsSelector,
 } from '@app/auth/store/auth.selectors';
 import { RegisterRequestInterface } from '@app/auth/types/registerRequest.interface';
-import { AppStateInterface } from '@app/shared/types/appState.interface';
-import { BackendErrorsInterface } from '@app/shared/types/backendErrors.interface';
+import { AppStateInterface } from '@app/shared/types/app-state.interface';
+import { BackendErrorsInterface } from '@app/shared/types/backend-errors.interface';
 
 @Component({
   selector: 'mca-register',

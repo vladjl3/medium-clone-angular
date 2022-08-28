@@ -4,8 +4,8 @@ import {
   isAnonymousSelector,
   isLoggedInSelector,
 } from '@app/auth/store/auth.selectors';
-import { AppStateInterface } from '@app/shared/types/appState.interface';
-import { CurrentUserInterface } from '@app/shared/types/currentUser.interface';
+import { AppStateInterface } from '@app/shared/types/app-state.interface';
+import { CurrentUserInterface } from '@app/shared/types/current-user.interface';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 

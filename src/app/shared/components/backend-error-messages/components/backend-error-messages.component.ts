@@ -4,7 +4,7 @@ import {
   Input,
   OnInit,
 } from '@angular/core';
-import { BackendErrorsInterface } from '@app/shared/types/backendErrors.interface';
+import { BackendErrorsInterface } from '@app/shared/types/backend-errors.interface';
 
 @Component({
   selector: 'mca-backend-error-messages',

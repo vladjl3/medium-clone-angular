@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { getCurrentUserAction } from './auth/store/actions/get-current-user.actions';
-import { AppStateInterface } from './shared/types/appState.interface';
+import { AppStateInterface } from './shared/types/app-state.interface';
 
 @Component({
   selector: 'app-root',
