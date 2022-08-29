@@ -4,6 +4,7 @@ import { PersistenceService } from '@app/shared/services/persistence.service';
 import { CurrentUserInterface } from '@app/shared/types/current-user.interface';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { catchError, map, of, switchMap } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import {
   fetchCurrentUserAction,
   fetchCurrentUserFailureAction,
@@ -23,7 +24,7 @@ export class FetchCurrentUserEffect {
       ofType(fetchCurrentUserAction),
       switchMap(() => {
         const token = this.persistenceService.get(
-          this.persistenceService.ACCESS_TOKEN_LC_KEY
+          environment.LS_AUTH_TOKEN_KEY
         );
         if (!token) {
           return of(fetchCurrentUserFailureAction());

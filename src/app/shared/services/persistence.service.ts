@@ -2,8 +2,6 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class PersistenceService {
-  public ACCESS_TOKEN_LC_KEY = 'accessToken';
-
   public set(key: string, data: any): void {
     try {
       window.localStorage.setItem(key, JSON.stringify(data));

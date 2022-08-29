@@ -6,6 +6,7 @@ import { PersistenceService } from '@app/shared/services/persistence.service';
 import { CurrentUserInterface } from '@app/shared/types/current-user.interface';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { catchError, map, of, switchMap, tap } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import {
   loginAction,
   loginFailureAction,
@@ -28,7 +29,7 @@ export class LoginEffect {
         return this.authService.login(request).pipe(
           map((currentUser: CurrentUserInterface) => {
             this.persistenceService.set(
-              this.persistenceService.ACCESS_TOKEN_LC_KEY,
+              environment.LS_AUTH_TOKEN_KEY,
               currentUser.token
             );
             return loginSuccessAction({ currentUser });
