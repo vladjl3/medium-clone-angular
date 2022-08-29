@@ -13,7 +13,7 @@ import { AuthModule } from '@app/auth/auth.module';
 import { EffectsModule } from '@ngrx/effects';
 import { CoreModule } from './core/core.module';
 import { PersistenceService } from './shared/services/persistence.service';
-import { AuthInterceptor } from './shared/services/auth-interceptor.service';
+import { AuthInterceptor } from './shared/interceptors/auth.interceptor';
 
 @NgModule({
   declarations: [AppComponent],
