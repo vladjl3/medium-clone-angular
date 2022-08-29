@@ -12,10 +12,10 @@ import {
   loginSuccessAction,
 } from './actions/login.actions';
 import {
-  getCurrentUserAction,
-  getCurrentUserFailureAction,
-  getCurrentUserSuccessAction,
-} from './actions/get-current-user.actions';
+  fetchCurrentUserAction,
+  fetchCurrentUserFailureAction,
+  fetchCurrentUserSuccessAction,
+} from './actions/fetch-current-user.actions';
 
 export const featureName = 'auth';
 
@@ -60,17 +60,17 @@ export const reducer = createReducer(
     inProgress: false,
     validationErrors: action.errors,
   })),
-  on(getCurrentUserAction, (state) => ({
+  on(fetchCurrentUserAction, (state) => ({
     ...state,
     isFetchingCurrentUser: true,
   })),
-  on(getCurrentUserSuccessAction, (state, action) => ({
+  on(fetchCurrentUserSuccessAction, (state, action) => ({
     ...state,
     isFetchingCurrentUser: false,
     isLoggedIn: true,
     currentUser: action.currentUser,
   })),
-  on(getCurrentUserFailureAction, (state) => ({
+  on(fetchCurrentUserFailureAction, (state) => ({
     ...state,
     isFetchingCurrentUser: false,
     isLoggedIn: false,

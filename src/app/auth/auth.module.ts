@@ -11,7 +11,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { AuthService } from './services/auth.service';
 import * as AuthReducer from './store/auth.reducer';
-import { GetCurrentUserEffect } from './store/effects/get-current-user.effects';
+import { FetchCurrentUserEffect } from './store/effects/fetch-current-user.effects';
 import { LoginEffect } from './store/effects/login.effects';
 import { RegisterEffect } from './store/effects/register.effects';
 
@@ -26,7 +26,7 @@ import { RegisterEffect } from './store/effects/register.effects';
     EffectsModule.forFeature([
       RegisterEffect,
       LoginEffect,
-      GetCurrentUserEffect,
+      FetchCurrentUserEffect,
     ]),
   ],
   providers: [AuthService, PersistenceService],

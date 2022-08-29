@@ -5,35 +5,35 @@ import { CurrentUserInterface } from '@app/shared/types/current-user.interface';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { catchError, map, of, switchMap } from 'rxjs';
 import {
-  getCurrentUserAction,
-  getCurrentUserFailureAction,
-  getCurrentUserSuccessAction,
-} from '../actions/get-current-user.actions';
+  fetchCurrentUserAction,
+  fetchCurrentUserFailureAction,
+  fetchCurrentUserSuccessAction,
+} from '../actions/fetch-current-user.actions';
 
 @Injectable()
-export class GetCurrentUserEffect {
+export class FetchCurrentUserEffect {
   constructor(
     private actions$: Actions,
     private authService: AuthService,
     private persistenceService: PersistenceService
   ) {}
 
-  getCurrentUser$ = createEffect(() => {
+  fetchCurrentUser$ = createEffect(() => {
     return this.actions$.pipe(
-      ofType(getCurrentUserAction),
+      ofType(fetchCurrentUserAction),
       switchMap(() => {
         const token = this.persistenceService.get(
           this.persistenceService.ACCESS_TOKEN_LC_KEY
         );
         if (!token) {
-          return of(getCurrentUserFailureAction());
+          return of(fetchCurrentUserFailureAction());
         }
-        return this.authService.getCurrentUser().pipe(
+        return this.authService.fetchCurrentUser().pipe(
           map((currentUser: CurrentUserInterface) => {
-            return getCurrentUserSuccessAction({ currentUser });
+            return fetchCurrentUserSuccessAction({ currentUser });
           }),
           catchError(() => {
-            return of(getCurrentUserFailureAction());
+            return of(fetchCurrentUserFailureAction());
           })
         );
       })

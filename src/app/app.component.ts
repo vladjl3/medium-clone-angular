@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { getCurrentUserAction } from './auth/store/actions/get-current-user.actions';
+import { fetchCurrentUserAction } from './auth/store/actions/fetch-current-user.actions';
 import { AppStateInterface } from './shared/types/app-state.interface';
 
 @Component({
@@ -11,6 +11,6 @@ import { AppStateInterface } from './shared/types/app-state.interface';
 export class AppComponent implements OnInit {
   constructor(private store$: Store<AppStateInterface>) {}
   ngOnInit(): void {
-    this.store$.dispatch(getCurrentUserAction());
+    this.store$.dispatch(fetchCurrentUserAction());
   }
 }
