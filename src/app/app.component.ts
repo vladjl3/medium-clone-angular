@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { fetchCurrentUserAction } from './auth/store/actions/fetch-current-user.actions';
+import { fetchCurrentUserAction } from './modules/auth/store/actions/fetch-current-user.actions';
 import { AppStateInterface } from './shared/types/app-state.interface';
 
 @Component({

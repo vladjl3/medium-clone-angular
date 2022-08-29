@@ -3,7 +3,7 @@ import {
   currentUserSelector,
   isAnonymousSelector,
   isLoggedInSelector,
-} from '@app/auth/store/auth.selectors';
+} from '@app/modules/auth/store/auth.selectors';
 import { AppStateInterface } from '@app/shared/types/app-state.interface';
 import { CurrentUserInterface } from '@app/shared/types/current-user.interface';
 import { select, Store } from '@ngrx/store';

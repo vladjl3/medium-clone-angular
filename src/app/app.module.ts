@@ -9,7 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { reducers } from './store/root.store';
 
-import { AuthModule } from '@app/auth/auth.module';
+import { AuthModule } from '@app/modules/auth/auth.module';
 import { EffectsModule } from '@ngrx/effects';
 import { CoreModule } from './core/core.module';
 import { PersistenceService } from './shared/services/persistence.service';

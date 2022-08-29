@@ -3,9 +3,9 @@ import { Injectable } from '@angular/core';
 import { CurrentUserInterface } from '@app/shared/types/current-user.interface';
 import { map, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { AuthResponseInterface } from '../types/authResponse.interface';
-import { LoginRequestInterface } from '../types/loginRequest.interface';
-import { RegisterRequestInterface } from '../types/registerRequest.interface';
+import { AuthResponseInterface } from '../types/auth-response.interface';
+import { LoginRequestInterface } from '../types/login-request.interface';
+import { RegisterRequestInterface } from '../types/register-request.interface';
 
 @Injectable()
 export class AuthService {

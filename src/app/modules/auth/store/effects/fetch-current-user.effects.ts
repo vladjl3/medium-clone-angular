@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AuthService } from '@app/auth/services/auth.service';
+import { AuthService } from '@app/modules/auth/services/auth.service';
 import { PersistenceService } from '@app/shared/services/persistence.service';
 import { CurrentUserInterface } from '@app/shared/types/current-user.interface';
 import { Actions, createEffect, ofType } from '@ngrx/effects';

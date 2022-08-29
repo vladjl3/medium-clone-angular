@@ -3,12 +3,12 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
-import { registerAction } from '@app/auth/store/actions/register.actions';
+import { registerAction } from '@app/modules/auth/store/actions/register.actions';
 import {
   inProgressSelector,
   validationErrorsSelector,
-} from '@app/auth/store/auth.selectors';
-import { RegisterRequestInterface } from '@app/auth/types/registerRequest.interface';
+} from '@app/modules/auth/store/auth.selectors';
+import { RegisterRequestInterface } from '@app/modules/auth/types/register-request.interface';
 import { AppStateInterface } from '@app/shared/types/app-state.interface';
 import { BackendErrorsInterface } from '@app/shared/types/backend-errors.interface';
 
