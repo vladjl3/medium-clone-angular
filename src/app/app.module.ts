@@ -14,6 +14,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { CoreModule } from './core/core.module';
 import { PersistenceService } from './shared/services/persistence.service';
 import { AuthInterceptor } from './shared/interceptors/auth.interceptor';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [AppComponent],
@@ -29,6 +30,7 @@ import { AuthInterceptor } from './shared/interceptors/auth.interceptor';
       logOnly: environment.production,
     }),
     EffectsModule.forRoot([]),
+    BrowserAnimationsModule,
   ],
   providers: [
     PersistenceService,
