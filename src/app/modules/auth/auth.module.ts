@@ -2,7 +2,6 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BackendErrorMessagesModule } from '@app/shared/components/backend-error-messages/backend-error-messages.module';
-import { PersistenceService } from '@app/shared/services/persistence.service';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 
@@ -29,6 +28,6 @@ import { RegisterEffect } from './store/effects/register.effects';
       FetchCurrentUserEffect,
     ]),
   ],
-  providers: [AuthService, PersistenceService],
+  providers: [AuthService],
 })
 export class AuthModule {}
