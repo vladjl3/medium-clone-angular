@@ -9,14 +9,16 @@ import { reducers } from './store/root.store';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { AuthModule } from '@app/modules/auth/auth.module';
 import { CoreModule } from './core/core.module';
+import { AuthModule } from '@app/modules/auth/auth.module';
+import { HomeFeedModule } from './modules/home-feed/home-feed.module';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     CoreModule,
     AuthModule,
+    HomeFeedModule,
     AppRoutingModule,
     StoreModule.forRoot(reducers),
     EffectsModule.forRoot([]),
