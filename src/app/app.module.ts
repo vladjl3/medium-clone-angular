@@ -11,14 +11,14 @@ import { AppComponent } from './app.component';
 
 import { CoreModule } from './core/core.module';
 import { AuthModule } from '@app/modules/auth/auth.module';
-import { HomeFeedModule } from './modules/home-feed/home-feed.module';
+import { HomePageModule } from './pages/home-page/home-page.module';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     CoreModule,
     AuthModule,
-    HomeFeedModule,
+    HomePageModule,
     AppRoutingModule,
     StoreModule.forRoot(reducers),
     EffectsModule.forRoot([]),
