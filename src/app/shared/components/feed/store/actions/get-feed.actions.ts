@@ -13,8 +13,8 @@ export const getFeedAction = createAction(
 );
 
 export const getFeedSuccessAction = createAction(
-  ActionTypes.GET_FEED,
+  ActionTypes.GET_FEED_SUCCESS,
   props<{ feed: GetFeedResponseInterface }>()
 );
 
-export const getFeedFailureAction = createAction(ActionTypes.GET_FEED);
+export const getFeedFailureAction = createAction(ActionTypes.GET_FEED_FAILURE);
