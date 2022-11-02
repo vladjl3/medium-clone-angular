@@ -1,2 +1,17 @@
-<h1>Home Page</h1>
-<mca-feed></mca-feed>
+<div class="home-page">
+  BANNER
+  <div class="container page">
+    <div class="row">
+      <div class="col-md-9">
+        <h1>Home Page</h1>
+        <div class="feed-toggle">FEED TOGGLER</div>
+        <mca-feed [apiEndpoint]="apiEndpoint"></mca-feed>
+      </div>
+      <div class="col-md-3">
+        <div class="sidebar">
+          <p>POPULAR TAGS</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
