@@ -1,5 +1,6 @@
 <div *ngIf="isLoading$ | async">Loading...</div>
-<div *ngIf="error$ | async">Something went wrong...</div>
+<mca-error-messages *ngIf="error$ | async as errors" [messages]="errors">
+</mca-error-messages>
 
 <div *ngIf="feed$ | async as feed">
   <div class="article-preview" *ngFor="let article of feed.articles">
