@@ -22,4 +22,10 @@
       </ul>
     </a>
   </div>
+  <mca-pagination
+    [baseUrl]="baseUrl"
+    [currentPage]="currentPage"
+    [totalItemsCount]="feed.articlesCount"
+    [perPageLimit]="limit"
+  ></mca-pagination>
 </div>

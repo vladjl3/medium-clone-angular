@@ -4,9 +4,11 @@ import {
   Input,
   OnInit,
 } from '@angular/core';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { AppStateInterface } from '@app/shared/types/app-state.interface';
 import { select, Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
+import { environment } from 'src/environments/environment.prod';
 import { getFeedAction } from './store/actions/get-feed.actions';
 import {
   errorSelector,
@@ -27,10 +29,19 @@ export class FeedComponent implements OnInit {
   isLoading$: Observable<boolean>;
   error$: Observable<string | null>;
   feed$: Observable<GetFeedResponseInterface | null>;
+  limit: number = environment.limit;
+  baseUrl: string;
+  queryParamsSubscription: Subscription;
+  currentPage: number;
 
-  constructor(private store$: Store<AppStateInterface>) {}
+  constructor(
+    private store$: Store<AppStateInterface>,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
+    this.listenersInit();
     this.valuesInit();
     this.dataFetch();
   }
@@ -39,6 +50,16 @@ export class FeedComponent implements OnInit {
     this.isLoading$ = this.store$.pipe(select(isLoadingSelector));
     this.error$ = this.store$.pipe(select(errorSelector));
     this.feed$ = this.store$.pipe(select(feedSelector));
+    this.baseUrl = this.router.url.split('?')[0];
+  }
+
+  private listenersInit(): void {
+    this.queryParamsSubscription = this.route.queryParams.subscribe(
+      (params: Params) => {
+        this.currentPage = Number(params['page'] || '1');
+        console.log(this.currentPage);
+      }
+    );
   }
 
   private dataFetch(): void {
