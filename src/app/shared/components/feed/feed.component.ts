@@ -16,6 +16,7 @@ import {
   isLoadingSelector,
 } from './store/feed.selectors';
 import { GetFeedResponseInterface } from './types/get-feed-response.interface';
+import { parseUrl, stringify } from 'query-string';
 
 @Component({
   selector: 'mca-feed',
@@ -43,7 +44,6 @@ export class FeedComponent implements OnInit {
   ngOnInit(): void {
     this.listenersInit();
     this.valuesInit();
-    this.dataFetch();
   }
 
   private valuesInit(): void {
@@ -57,12 +57,20 @@ export class FeedComponent implements OnInit {
     this.queryParamsSubscription = this.route.queryParams.subscribe(
       (params: Params) => {
         this.currentPage = Number(params['page'] || '1');
-        console.log(this.currentPage);
+        this.fetchFeed();
       }
     );
   }
 
-  private dataFetch(): void {
-    this.store$.dispatch(getFeedAction({ url: this.apiEndpointProps }));
+  private fetchFeed(): void {
+    const offset = this.currentPage * this.limit - this.limit;
+    const parsedUrl = parseUrl(this.apiEndpointProps);
+    const stringifiedParams = stringify({
+      limit: this.limit,
+      offset,
+      ...parsedUrl.query,
+    });
+    const apiEndpointWithParams = `${parsedUrl.url}?${stringifiedParams}`;
+    this.store$.dispatch(getFeedAction({ url: apiEndpointWithParams }));
   }
 }
