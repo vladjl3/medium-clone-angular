@@ -12,6 +12,7 @@ import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { AuthModule } from '@app/modules/auth/auth.module';
 import { HomePageModule } from './pages/home-page/home-page.module';
+import { StoreRouterConnectingModule } from '@ngrx/router-store';
 
 @NgModule({
   declarations: [AppComponent],
@@ -26,6 +27,7 @@ import { HomePageModule } from './pages/home-page/home-page.module';
       maxAge: 25,
       logOnly: environment.production,
     }),
+    StoreRouterConnectingModule.forRoot(),
   ],
   bootstrap: [AppComponent],
 })
