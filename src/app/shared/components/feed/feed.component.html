@@ -17,9 +17,7 @@
     <a [routerLink]="['/articles', article.slug]" class="preview-link">
       <h1>{{ article.title }}</h1>
       <p>{{ article.description }}</p>
-      <ul class="tag-list">
-        HERE IS LIST OF TAGS
-      </ul>
+      <mca-tag-list [tags]="article.tagList"></mca-tag-list>
     </a>
   </div>
   <mca-pagination
