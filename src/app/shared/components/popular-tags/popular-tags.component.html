@@ -1,0 +1,13 @@
+<mca-loading *ngIf="isLoading$ | async"></mca-loading>
+<mca-error-messages *ngIf="error$ | async"></mca-error-messages>
+<div class="sidebar" *ngIf="popularTags$ | async as tags">
+  <p>Popular Tags</p>
+  <div class="tag-list">
+    <a
+      *ngFor="let tag of tags"
+      [routerLink]="['/tags', tag]"
+      class="tag-default tag-pill"
+      >{{ tag }}</a
+    >
+  </div>
+</div>
